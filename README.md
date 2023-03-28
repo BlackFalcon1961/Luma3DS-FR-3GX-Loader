@@ -1,7 +1,7 @@
 # Luma3DS FR 3GX Loader
 *(N)3DS "Custom Firmware" Traduit en français*
 
-![](https://github.com/BlackFalcon1961/Luma3DS-FR-3GX-Loader/blob/images/Luma3DS-FR-300px.png)
+![](https://user-images.githubusercontent.com/60007836/228280451-ee9f10b8-afa9-4bdb-88b0-5615da23edb1.png)
 
 **ATTENTION : CE PROJET EST ACTUELLEMENT EN COURS DE TRADUCTION**
 
