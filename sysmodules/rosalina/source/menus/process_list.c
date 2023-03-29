@@ -107,8 +107,8 @@ static void ProcessListMenu_DumpMemory(const char *name, void *start, u32 size)
 #define TRY(expr) if(R_FAILED(res = (expr))) goto end;
 
     Draw_Lock();
-    Draw_DrawString(10, 10, COLOR_TITLE, "Memory dump");
-    const char * wait_message = "Please wait, this may take a while...";
+    Draw_DrawString(10, 10, COLOR_TITLE, "Dump memoire");
+    const char * wait_message = "Patientez, cela peut prendre du temps...";
     Draw_DrawString(10, 30, COLOR_WHITE, wait_message);
     Draw_FlushFramebuffer();
     Draw_Unlock();
@@ -195,17 +195,17 @@ end:
     do
     {
         Draw_Lock();
-        Draw_DrawString(10, 10, COLOR_TITLE, "Memory dump");
+        Draw_DrawString(10, 10, COLOR_TITLE, "Dump memoire");
         Draw_DrawFormattedString(10, 30, COLOR_WHITE, "%*s", strlen(wait_message), " ");
         if(R_FAILED(res))
         {
-            Draw_DrawFormattedString(10, 30, COLOR_WHITE, "Operation failed (0x%.8lx).", res);
+            Draw_DrawFormattedString(10, 30, COLOR_WHITE, "Echec de l'operation (0x%.8lx).", res);
         }
         else
         {
-            Draw_DrawString(10, 30, COLOR_WHITE, "Operation succeeded.");
+            Draw_DrawString(10, 30, COLOR_WHITE, "Operation reussie.");
         }
-        Draw_DrawString(10, 30+SPACING_Y, COLOR_WHITE, "Press B to go back.");
+        Draw_DrawString(10, 30+SPACING_Y, COLOR_WHITE, "Pressez B pour revenir en arriere.");
 
         Draw_FlushFramebuffer();
         Draw_Unlock();
@@ -403,29 +403,29 @@ static void ProcessListMenu_MemoryViewer(const ProcessInfo *info)
             void drawMenu(void)
             {
                 Draw_Lock();
-                Draw_DrawString(10, 10, COLOR_TITLE, "Memory viewer");
+                Draw_DrawString(10, 10, COLOR_TITLE, "Visionneuse memoire");
 
                 // Instructions
                 const u32 instructionsY = 30;
                 u32 viewerY = instructionsY + SPACING_Y + 6;
-                Draw_DrawString(10, instructionsY, COLOR_WHITE, "D-PAD to move, X to jump, Y to search, A to edit.");
+                Draw_DrawString(10, instructionsY, COLOR_WHITE, "Pad directionnel pour naviguer, X pour\nsauter, Y pour chercher, A pour editer.");
 
                 switch(menuMode)
                 {
                     case MENU_MODE_NORMAL:
-                        Draw_DrawString(10 + SPACING_X * 9, instructionsY, COLOR_GREEN, "move");
+                        Draw_DrawString(10 + SPACING_X * 9, instructionsY, COLOR_GREEN, "naviguer");
                         break;
                     case MENU_MODE_GOTO:
-                        Draw_DrawString(10 + SPACING_X * 20, instructionsY, COLOR_GREEN, "jump");
+                        Draw_DrawString(10 + SPACING_X * 20, instructionsY, COLOR_GREEN, "sauter");
                         break;
                     case MENU_MODE_SEARCH:
-                        Draw_DrawString(10 + SPACING_X * 31, instructionsY, COLOR_GREEN, "search");
+                        Draw_DrawString(10 + SPACING_X * 31, instructionsY, COLOR_GREEN, "chercher");
                         break;
                     default: break;
                 }
 
                 if(editing)
-                    Draw_DrawString(10 + SPACING_X * 44, instructionsY, COLOR_RED, "edit");
+                    Draw_DrawString(10 + SPACING_X * 44, instructionsY, COLOR_RED, "editer");
                 // ------------------------------------------
 
                 // Location
@@ -433,7 +433,7 @@ static void ProcessListMenu_MemoryViewer(const ProcessInfo *info)
                 viewerY += SPACING_Y;
                 if(codeAvailable && heapAvailable)
                 {
-                    Draw_DrawString(10, infoY, COLOR_WHITE, "Press L or R to switch between heap and code.");
+                    Draw_DrawString(10, infoY, COLOR_WHITE, "Pressez L ou R pour switcher entre heap et code.");
                     if((u32)menus[MENU_MODE_NORMAL].buf == heapDestAddress)
                         Draw_DrawString(10 + SPACING_X * 31, infoY, COLOR_GREEN, "heap");
                     if((u32)menus[MENU_MODE_NORMAL].buf == codeDestAddress)
@@ -441,7 +441,7 @@ static void ProcessListMenu_MemoryViewer(const ProcessInfo *info)
                 }
                 else
                 {
-                    Draw_DrawString(10, infoY, COLOR_WHITE, "SELECT to dump memory, START to toggle ASCII view.");
+                    Draw_DrawString(10, infoY, COLOR_WHITE, "SELECT pour dumper la memoire, START pour la vue ASCII.");
                     if(ascii)
                         Draw_DrawString(10 + SPACING_X * 39, infoY, COLOR_GREEN, "ASCII");
                 }
@@ -703,7 +703,7 @@ void RosalinaMenu_ProcessList(void)
         Draw_Lock();
         if(page != pagePrev)
             Draw_ClearFramebuffer();
-        Draw_DrawString(10, 10, COLOR_TITLE, "Process list");
+        Draw_DrawString(10, 10, COLOR_TITLE, "Liste de processus");
 
         if(gdbServer.super.running)
         {

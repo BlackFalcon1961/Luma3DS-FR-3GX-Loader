@@ -33,13 +33,13 @@
 #include "ifile.h"
 
 Menu sysconfigMenu = {
-    "System configuration menu",
+    "Menu de configuration systeme",
     {
-        { "Control Wireless connection", METHOD, .method = &SysConfigMenu_ControlWifi },
-        { "Toggle LEDs", METHOD, .method = &SysConfigMenu_ToggleLEDs },
-        { "Toggle Wireless", METHOD, .method = &SysConfigMenu_ToggleWireless },
-        { "Toggle Power Button", METHOD, .method=&SysConfigMenu_TogglePowerButton },
-        { "Toggle power to card slot", METHOD, .method=&SysConfigMenu_ToggleCardIfPower},
+        { "Controle connexion reseau", METHOD, .method = &SysConfigMenu_ControlWifi },
+        { "Outil LEDs", METHOD, .method = &SysConfigMenu_ToggleLEDs },
+        { "Outil reseau", METHOD, .method = &SysConfigMenu_ToggleWireless },
+        { "Outil bouton power", METHOD, .method=&SysConfigMenu_TogglePowerButton },
+        { "Outil alimentation de la carte", METHOD, .method=&SysConfigMenu_ToggleCardIfPower},
         {},
     }
 };
@@ -56,11 +56,10 @@ void SysConfigMenu_ToggleLEDs(void)
     do
     {
         Draw_Lock();
-        Draw_DrawString(10, 10, COLOR_TITLE, "System configuration menu");
-        Draw_DrawString(10, 30, COLOR_WHITE, "Press A to toggle, press B to go back.");
-        Draw_DrawString(10, 50, COLOR_RED, "WARNING:");
-        Draw_DrawString(10, 60, COLOR_WHITE, "  * Entering sleep mode will reset the LED state!");
-        Draw_DrawString(10, 70, COLOR_WHITE, "  * LEDs cannot be toggled when the battery is low!");
+        Draw_DrawString(10, 10, COLOR_TITLE, "Menu de configuration systeme");
+        Draw_DrawString(10, 30, COLOR_WHITE, "Pressez A pour changer, B pour revenir.");
+        Draw_DrawString(10, 50, COLOR_RED, "ATTENTION :");
+        Draw_DrawString(10, 60, COLOR_WHITE, "  * Le mode veille va reset le statut des LED !");
 
         Draw_FlushFramebuffer();
         Draw_Unlock();
@@ -94,14 +93,14 @@ void SysConfigMenu_ToggleWireless(void)
     do
     {
         Draw_Lock();
-        Draw_DrawString(10, 10, COLOR_TITLE, "System configuration menu");
-        Draw_DrawString(10, 30, COLOR_WHITE, "Press A to toggle, press B to go back.");
+        Draw_DrawString(10, 10, COLOR_TITLE, "Menu de configuration systeme");
+        Draw_DrawString(10, 30, COLOR_WHITE, "Pressez A pour changer, B pour revenir.");
 
         u8 wireless = (*(vu8 *)((0x10140000 | (1u << 31)) + 0x180));
 
         if(nwmRunning)
         {
-            Draw_DrawString(10, 50, COLOR_WHITE, "Current status:");
+            Draw_DrawString(10, 50, COLOR_WHITE, "Statut actuel :");
             Draw_DrawString(100, 50, (wireless ? COLOR_GREEN : COLOR_RED), (wireless ? " ON " : " OFF"));
         }
         else
@@ -135,12 +134,12 @@ void SysConfigMenu_UpdateStatus(bool control)
 
     if(control)
     {
-        item->title = "Control Wireless connection";
+        item->title = "Controle connexion reseau";
         item->method = &SysConfigMenu_ControlWifi;
     }
     else
     {
-        item->title = "Disable forced wireless connection";
+        item->title = "Desactiver la connexion reseau forcee";
         item->method = &SysConfigMenu_DisableForcedWifiConnection;
     }
 }
@@ -181,9 +180,9 @@ static bool SysConfigMenu_ForceWifiConnection(int slot)
     char infoString[80] = {0};
     u32 infoStringColor = forcedConnection ? COLOR_GREEN : COLOR_RED;
     if(forcedConnection)
-        sprintf(infoString, "Succesfully forced a connection to: %s", ssid);
+        sprintf(infoString, "Connexion forcee sur : %s", ssid);
     else
-       sprintf(infoString, "Failed to connect to slot %d", slot + 1);
+       sprintf(infoString, "Echec de la connexion sur le slot %d", slot + 1);
 
     Draw_Lock();
     Draw_ClearFramebuffer();
@@ -193,9 +192,9 @@ static bool SysConfigMenu_ForceWifiConnection(int slot)
     do
     {
         Draw_Lock();
-        Draw_DrawString(10, 10, COLOR_TITLE, "System configuration menu");
+        Draw_DrawString(10, 10, COLOR_TITLE, "Menu de configuration systeme");
         Draw_DrawString(10, 30, infoStringColor, infoString);
-        Draw_DrawString(10, 40, COLOR_WHITE, "Press B to go back.");
+        Draw_DrawString(10, 40, COLOR_WHITE, "Pressez B pour revenir.");
 
         Draw_FlushFramebuffer();
         Draw_Unlock();
@@ -226,10 +225,10 @@ void SysConfigMenu_TogglePowerButton(void)
     do
     {
         Draw_Lock();
-        Draw_DrawString(10, 10, COLOR_TITLE, "System configuration menu");
-        Draw_DrawString(10, 30, COLOR_WHITE, "Press A to toggle, press B to go back.");
+        Draw_DrawString(10, 10, COLOR_TITLE, "Menu de configuration systeme");
+        Draw_DrawString(10, 30, COLOR_WHITE, "Pressez A pour changer, B pour revenir.");
 
-        Draw_DrawString(10, 50, COLOR_WHITE, "Current status:");
+        Draw_DrawString(10, 50, COLOR_WHITE, "Statut actuel :");
         Draw_DrawString(100, 50, (((mcuIRQMask & 0x00000001) == 0x00000001) ? COLOR_RED : COLOR_GREEN), (((mcuIRQMask & 0x00000001) == 0x00000001) ? " DISABLED" : " ENABLED "));
 
         Draw_FlushFramebuffer();
@@ -264,10 +263,10 @@ void SysConfigMenu_ControlWifi(void)
     do
     {
         Draw_Lock();
-        Draw_DrawString(10, 10, COLOR_TITLE, "System configuration menu");
-        Draw_DrawString(10, 30, COLOR_WHITE, "Press A to force a connection to slot:");
+        Draw_DrawString(10, 10, COLOR_TITLE, "Menu de configuration systeme");
+        Draw_DrawString(10, 30, COLOR_WHITE, "Pressez A pour forcer la connexion\nsur le slot :");
         Draw_DrawString(10, 40, COLOR_WHITE, slotString);
-        Draw_DrawString(10, 60, COLOR_WHITE, "Press B to go back.");
+        Draw_DrawString(10, 60, COLOR_WHITE, "Pressez B pour revenir.");
 
         Draw_FlushFramebuffer();
         Draw_Unlock();
@@ -326,8 +325,8 @@ void SysConfigMenu_DisableForcedWifiConnection(void)
     do
     {
         Draw_Lock();
-        Draw_DrawString(10, 10, COLOR_TITLE, "System configuration menu");
-        Draw_DrawString(10, 30, COLOR_WHITE, "Forced connection successfully disabled.\nNote: auto-connection may remain broken.");
+        Draw_DrawString(10, 10, COLOR_TITLE, "Menu de configuration systeme");
+        Draw_DrawString(10, 30, COLOR_WHITE, "Connexion forcee desactivee avec succes.\nNote : La connexion automatique peut casser.");
 
         u32 pressed = waitInputWithTimeout(1000);
         if(pressed & KEY_B)
@@ -352,11 +351,11 @@ void SysConfigMenu_ToggleCardIfPower(void)
         if (R_FAILED(res)) cardIfStatus = false;
 
         Draw_Lock();
-        Draw_DrawString(10, 10, COLOR_TITLE, "System configuration menu");
-        u32 posY = Draw_DrawString(10, 30, COLOR_WHITE, "Press A to toggle, press B to go back.\n\n");
-        posY = Draw_DrawString(10, posY, COLOR_WHITE, "Inserting or removing a card will reset the status,\nand you'll need to reinsert the cart if you want to\nplay it.\n\n");
-        Draw_DrawString(10, posY, COLOR_WHITE, "Current status:");
-        Draw_DrawString(100, posY, !cardIfStatus ? COLOR_RED : COLOR_GREEN, !cardIfStatus ? " DISABLED" : " ENABLED ");
+        Draw_DrawString(10, 10, COLOR_TITLE, "Menu de configuration systeme");
+        u32 posY = Draw_DrawString(10, 30, COLOR_WHITE, "Pressez A pour changer, B pour revenir.\n\n");
+        posY = Draw_DrawString(10, posY, COLOR_WHITE, "Inserer ou retirer une carte reinitialise le statut,\net vous devrez la reinserer si vous voulez\nla lire.\n\n");
+        Draw_DrawString(10, posY, COLOR_WHITE, "Statut actuel :");
+        Draw_DrawString(100, posY, !cardIfStatus ? COLOR_RED : COLOR_GREEN, !cardIfStatus ? " DESACTIVE" : " ACTIVE ");
 
         Draw_FlushFramebuffer();
         Draw_Unlock();

@@ -65,14 +65,14 @@ typedef struct DspFirm {
 } DspFirm;
 
 Menu miscellaneousMenu = {
-    "Miscellaneous options menu",
+    "Menu d'options diverses",
     {
-        { "Switch the hb. title to the current app.", METHOD, .method = &MiscellaneousMenu_SwitchBoot3dsxTargetTitle },
-        { "Change the menu combo", METHOD, .method = &MiscellaneousMenu_ChangeMenuCombo },
-        { "Start InputRedirection", METHOD, .method = &MiscellaneousMenu_InputRedirection },
-        { "Update time and date via NTP", METHOD, .method = &MiscellaneousMenu_UpdateTimeDateNtp },
-        { "Nullify user time offset", METHOD, .method = &MiscellaneousMenu_NullifyUserTimeOffset },
-        { "Dump DSP firmware", METHOD, .method = &MiscellaneousMenu_DumpDspFirm },
+        { "Switcher le titre hb. sur l'app actuelle.", METHOD, .method = &MiscellaneousMenu_SwitchBoot3dsxTargetTitle },
+        { "Changer le combo du menu", METHOD, .method = &MiscellaneousMenu_ChangeMenuCombo },
+        { "Demarrer InputRedirection", METHOD, .method = &MiscellaneousMenu_InputRedirection },
+        { "Mettre a jour la date et l'heure via NTP", METHOD, .method = &MiscellaneousMenu_UpdateTimeDateNtp },
+        { "Annuler le decalage du temps de l'utilisateur", METHOD, .method = &MiscellaneousMenu_NullifyUserTimeOffset },
+        { "Dumper le firmware DSP", METHOD, .method = &MiscellaneousMenu_DumpDspFirm },
         {},
     }
 };
@@ -138,12 +138,12 @@ void MiscellaneousMenu_SwitchBoot3dsxTargetTitle(void)
     do
     {
         Draw_Lock();
-        Draw_DrawString(10, 10, COLOR_TITLE, "Miscellaneous options menu");
+        Draw_DrawString(10, 10, COLOR_TITLE, "Menu d'options diverses");
 
         if(R_SUCCEEDED(res))
-            Draw_DrawString(10, 30, COLOR_WHITE, "Operation succeeded.");
+            Draw_DrawString(10, 30, COLOR_WHITE, "Operation reussie.");
         else
-            Draw_DrawFormattedString(10, 30, COLOR_WHITE, "Operation failed (%s).", failureReason);
+            Draw_DrawFormattedString(10, 30, COLOR_WHITE, "Echec de l'operation (%s).", failureReason);
 
         Draw_FlushFramebuffer();
         Draw_Unlock();
@@ -164,10 +164,10 @@ void MiscellaneousMenu_ChangeMenuCombo(void)
     LumaConfig_ConvertComboToString(comboStrOrig, menuCombo);
 
     Draw_Lock();
-    Draw_DrawString(10, 10, COLOR_TITLE, "Miscellaneous options menu");
+    Draw_DrawString(10, 10, COLOR_TITLE, "Menu d'options diverses");
 
-    posY = Draw_DrawFormattedString(10, 30, COLOR_WHITE, "The current menu combo is:  %s", comboStrOrig);
-    posY = Draw_DrawString(10, posY + SPACING_Y, COLOR_WHITE, "Please enter the new combo:");
+    posY = Draw_DrawFormattedString(10, 30, COLOR_WHITE, "Le combo actuel du menu est :  %s", comboStrOrig);
+    posY = Draw_DrawString(10, posY + SPACING_Y, COLOR_WHITE, "Veuillez entre le nouveau combo :");
 
     menuCombo = waitCombo();
     LumaConfig_ConvertComboToString(comboStr, menuCombo);
@@ -175,12 +175,12 @@ void MiscellaneousMenu_ChangeMenuCombo(void)
     do
     {
         Draw_Lock();
-        Draw_DrawString(10, 10, COLOR_TITLE, "Miscellaneous options menu");
+        Draw_DrawString(10, 10, COLOR_TITLE, "Menu d'options diverses");
 
-        posY = Draw_DrawFormattedString(10, 30, COLOR_WHITE, "The current menu combo is:  %s", comboStrOrig);
-        posY = Draw_DrawFormattedString(10, posY + SPACING_Y, COLOR_WHITE, "Please enter the new combo: %s", comboStr) + SPACING_Y;
+        posY = Draw_DrawFormattedString(10, 30, COLOR_WHITE, "Le combo actuel du menu est :  %s", comboStrOrig);
+        posY = Draw_DrawFormattedString(10, posY + SPACING_Y, COLOR_WHITE, "Veuillez entre le nouveau combo : %s", comboStr) + SPACING_Y;
 
-        posY = Draw_DrawString(10, posY + SPACING_Y, COLOR_WHITE, "Successfully changed the menu combo.");
+        posY = Draw_DrawString(10, posY + SPACING_Y, COLOR_WHITE, "Nouveau combo defini !.");
 
         Draw_FlushFramebuffer();
         Draw_Unlock();
@@ -201,9 +201,9 @@ void MiscellaneousMenu_InputRedirection(void)
     {
         res = InputRedirection_Disable(5 * 1000 * 1000 * 1000LL);
         if(res != 0)
-            sprintf(buf, "Failed to stop InputRedirection (0x%08lx).", (u32)res);
+            sprintf(buf, "Echec de l'arret de InputRedirection (0x%08lx).", (u32)res);
         else
-            miscellaneousMenu.items[2].title = "Start InputRedirection";
+            miscellaneousMenu.items[2].title = "Demarrer InputRedirection";
     }
     else
     {
@@ -231,13 +231,13 @@ void MiscellaneousMenu_InputRedirection(void)
     do
     {
         Draw_Lock();
-        Draw_DrawString(10, 10, COLOR_TITLE, "Miscellaneous options menu");
+        Draw_DrawString(10, 10, COLOR_TITLE, "Menu d'options diverses");
 
         if(!wasEnabled && cantStart)
             Draw_DrawString(10, 30, COLOR_WHITE, "Can't start the input redirection before the system\nhas finished loading.");
         else if(!wasEnabled)
         {
-            Draw_DrawString(10, 30, COLOR_WHITE, "Starting InputRedirection...");
+            Draw_DrawString(10, 30, COLOR_WHITE, "Demarrage de InputRedirection...");
             if(!done)
             {
                 res = InputRedirection_DoOrUndoPatches();
@@ -324,7 +324,7 @@ void MiscellaneousMenu_UpdateTimeDateNtp(void)
     do
     {
         Draw_Lock();
-        Draw_DrawString(10, 10, COLOR_TITLE, "Miscellaneous options menu");
+        Draw_DrawString(10, 10, COLOR_TITLE, "Menu d'options diverses");
 
         absOffset = utcOffset - 12;
         absOffset = absOffset < 0 ? -absOffset : absOffset;
@@ -364,7 +364,7 @@ void MiscellaneousMenu_UpdateTimeDateNtp(void)
     do
     {
         Draw_Lock();
-        Draw_DrawString(10, 10, COLOR_TITLE, "Miscellaneous options menu");
+        Draw_DrawString(10, 10, COLOR_TITLE, "Menu d'options diverses");
 
         absOffset = utcOffset;
         absOffset = absOffset < 0 ? -absOffset : absOffset;
@@ -372,7 +372,7 @@ void MiscellaneousMenu_UpdateTimeDateNtp(void)
         if (cantStart)
             Draw_DrawFormattedString(10, posY + 2 * SPACING_Y, COLOR_WHITE, "Can't sync time/date before the system\nhas finished loading.") + SPACING_Y;
         else if (R_FAILED(res))
-            Draw_DrawFormattedString(10, posY + 2 * SPACING_Y, COLOR_WHITE, "Operation failed (%08lx).", (u32)res) + SPACING_Y;
+            Draw_DrawFormattedString(10, posY + 2 * SPACING_Y, COLOR_WHITE, "Echec de l'operation (%08lx).", (u32)res) + SPACING_Y;
         else
             Draw_DrawFormattedString(10, posY + 2 * SPACING_Y, COLOR_WHITE, "Time/date updated successfully.") + SPACING_Y;
 
@@ -397,7 +397,7 @@ void MiscellaneousMenu_NullifyUserTimeOffset(void)
     do
     {
         Draw_Lock();
-        Draw_DrawString(10, 10, COLOR_TITLE, "Miscellaneous options menu");
+        Draw_DrawString(10, 10, COLOR_TITLE, "Menu d'options diverses");
         if(R_SUCCEEDED(res))
             Draw_DrawString(10, 30, COLOR_WHITE, "Operation succeeded.\n\nPlease reboot to finalize the changes.");
         else
@@ -476,7 +476,7 @@ void MiscellaneousMenu_DumpDspFirm(void)
     do
     {
         Draw_Lock();
-        Draw_DrawString(10, 10, COLOR_TITLE, "Miscellaneous options menu");
+        Draw_DrawString(10, 10, COLOR_TITLE, "Menu d'options diverses");
         if(R_SUCCEEDED(res))
             Draw_DrawString(10, 30, COLOR_WHITE, "DSP firm. successfully written to /3ds/dspfirm.cdc\non the SD card.");
         else

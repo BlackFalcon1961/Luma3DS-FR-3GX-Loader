@@ -37,11 +37,11 @@
 #include "pmdbgext.h"
 
 Menu debuggerMenu = {
-    "Debugger options menu",
+    "Menu des options de deboguage",
     {
-        { "Enable debugger",                        METHOD, .method = &DebuggerMenu_EnableDebugger  },
-        { "Disable debugger",                       METHOD, .method = &DebuggerMenu_DisableDebugger },
-        { "Force-debug next application at launch", METHOD, .method = &DebuggerMenu_DebugNextApplicationByForce },
+        { "Activer le debugger",                        METHOD, .method = &DebuggerMenu_EnableDebugger  },
+        { "Desactiver le debugger",                       METHOD, .method = &DebuggerMenu_DisableDebugger },
+        { "Forcer le deboguage de l'app au\nprochain demarrage", METHOD, .method = &DebuggerMenu_DebugNextApplicationByForce },
         {},
     }
 };
@@ -127,15 +127,15 @@ void DebuggerMenu_EnableDebugger(void)
     do
     {
         Draw_Lock();
-        Draw_DrawString(10, 10, COLOR_TITLE, "Debugger options menu");
+        Draw_DrawString(10, 10, COLOR_TITLE, "Menu des options de deboguage");
 
         if(alreadyEnabled)
-            Draw_DrawString(10, 30, COLOR_WHITE, "Already enabled!");
+            Draw_DrawString(10, 30, COLOR_WHITE, "Deja active !");
         else if(!isSocURegistered)
-            Draw_DrawString(10, 30, COLOR_WHITE, "Can't start the debugger before the system has fi-\nnished loading.");
+            Draw_DrawString(10, 30, COLOR_WHITE, "Impossible de demarrer le debogueur avant\nque le systeme n'ait demarre.");
         else
         {
-            Draw_DrawString(10, 30, COLOR_WHITE, "Starting debugger...");
+            Draw_DrawString(10, 30, COLOR_WHITE, "Demarrage du debugger...");
 
             if(!done)
             {
@@ -151,11 +151,11 @@ void DebuggerMenu_EnableDebugger(void)
                 }
 
                 if(res != 0)
-                    sprintf(buf, "Starting debugger... failed (0x%08lx).", (u32)res);
+                    sprintf(buf, "Demarrage du debugger... echec (0x%08lx).", (u32)res);
                 done = true;
             }
             if(res == 0)
-                Draw_DrawString(10, 30, COLOR_WHITE, "Starting debugger... OK.");
+                Draw_DrawString(10, 30, COLOR_WHITE, "Demarrage du debugger... OK.");
             else
                 Draw_DrawString(10, 30, COLOR_WHITE, buf);
         }
@@ -174,13 +174,13 @@ void DebuggerMenu_DisableDebugger(void)
     char buf[65];
 
     if(res != 0)
-        sprintf(buf, "Failed to disable debugger (0x%08lx).", (u32)res);
+        sprintf(buf, "Echec de la desactivation du\ndebugger (0x%08lx).", (u32)res);
 
     do
     {
         Draw_Lock();
-        Draw_DrawString(10, 10, COLOR_TITLE, "Debugger options menu");
-        Draw_DrawString(10, 30, COLOR_WHITE, initialized ? (res == 0 ? "Debugger disabled successfully." : buf) : "Debugger not enabled.");
+        Draw_DrawString(10, 10, COLOR_TITLE, "Menu des options de deboguage");
+        Draw_DrawString(10, 30, COLOR_WHITE, initialized ? (res == 0 ? "Debugger desactive." : buf) : "Debugger non active.");
         Draw_FlushFramebuffer();
         Draw_Unlock();
     }
@@ -198,7 +198,7 @@ void DebuggerMenu_DebugNextApplicationByForce(void)
         GDB_LockAllContexts(&gdbServer);
 
         if (nextApplicationGdbCtx != NULL)
-            strcpy(buf, "Operation already performed.");
+            strcpy(buf, "Operation deja effectuee.");
         else
         {
             nextApplicationGdbCtx = GDB_SelectAvailableContext(&gdbServer, GDB_PORT_BASE + 3, GDB_PORT_BASE + 4);
@@ -208,27 +208,27 @@ void DebuggerMenu_DebugNextApplicationByForce(void)
                 nextApplicationGdbCtx->pid = 0xFFFFFFFF;
                 res = PMDBG_DebugNextApplicationByForce(true);
                 if(R_SUCCEEDED(res))
-                    sprintf(buf, "Operation succeeded.\nUse port %d to connect to the next launched\napplication.", nextApplicationGdbCtx->localPort);
+                    sprintf(buf, "Operation reussie.\nUtilisez le port %d pour se connecter a\nla prochaine app lancee.", nextApplicationGdbCtx->localPort);
                 else
                 {
                     nextApplicationGdbCtx->flags = 0;
                     nextApplicationGdbCtx->localPort = 0;
                     nextApplicationGdbCtx = NULL;
-                        sprintf(buf, "Operation failed (0x%08lx).", (u32)res);
+                        sprintf(buf, "Echec de l'operation (0x%08lx).", (u32)res);
                 }
             }
             else
-                strcpy(buf, "Failed to allocate a slot.\nPlease unselect a process in the process list first");
+                strcpy(buf, "Echec de l'allocation d'un slot.\nVeuillez avant deselectionner un processus dans la liste");
         }
         GDB_UnlockAllContexts(&gdbServer);
     }
     else
-        strcpy(buf, "Debugger not enabled.");
+        strcpy(buf, "Debugger non active.");
 
     do
     {
         Draw_Lock();
-        Draw_DrawString(10, 10, COLOR_TITLE, "Debugger options menu");
+        Draw_DrawString(10, 10, COLOR_TITLE, "Menu des options de deboguage");
         Draw_DrawString(10, 30, COLOR_WHITE, buf);
         Draw_FlushFramebuffer();
         Draw_Unlock();

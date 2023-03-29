@@ -148,7 +148,7 @@ bool verifyPin(u32 pinMode)
 
     swapFramebuffers(true);
 
-    drawString(true, 10, 10, COLOR_TITLE, "Entrez le PIN avec ABXY le pad directionnel pour continuer");
+    drawString(true, 10, 10, COLOR_TITLE, "Entrez le PIN avec ABXY le pad directionnel\npour continuer");
     drawString(true, 10, 10 + SPACING_Y, COLOR_TITLE, "Pressez START pour eteindre, SELECT pour effacer");
 
     drawFormattedString(true, 10, 10 + 3 * SPACING_Y, COLOR_WHITE, "PIN (%u touches): ", lengthBlock[0]);
