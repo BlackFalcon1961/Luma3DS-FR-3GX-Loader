@@ -11,7 +11,7 @@ Pour l'utiliser, vous aurez besoin d'une console capable d'exécuter un logiciel
 
 Depuis la v8.0, Luma3DS a son propre menu en jeu, activable avec <kbd>L+Bas+Select</kbd> (regardez les [notes de mise à jour](https://github.com/LumaTeam/Luma3DS/releases/tag/v8.0)).    
 
-Cette version de Luma3DS dispose également d'une fonctionnalité pour charger des plugins `.3gx`. Voir [cette page](https://github.com/BlackFalcon1961/Luma3DS-FR-3GX-Loader/wiki/3GX-Loader).
+Cette version de Luma3DS dispose également d'une fonctionnalité pour charger des plugins `.3gx`. Voir [cette page](https://github.com/BlackFalcon1961/Luma3DS-FR-3GX-Loader/wiki/3GX-Loader) pour plus d'infos.
 
 #
 ### Compilation :
