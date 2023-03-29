@@ -833,30 +833,33 @@ void configMenu(bool oldPinStatus, u32 oldPinMode)
                                                  "est egal aux EmuNANDs 1/2/3/4), faites A\n"
                                                  "si vous avez le payload correspondant.",
 
-                                                 "Enable loading external FIRMs and\n"
-                                                 "system modules.\n\n"
-                                                 "This isn't needed in most cases.\n\n"
-                                                 "Refer to the wiki for instructions.",
+                                                 "Active le chargement externe des FIRMs\n"
+                                                 "et des modules systeme.\n\n"
+                                                 "Ce n'est pas necessaire dans la plupart.\n"
+                                                 "des cas.\n\n"
+                                                 "Referez-vous au wiki pour plus d'infos.",
 
-                                                 "Enable overriding the region and\n"
-                                                 "language configuration and the usage\n"
-                                                 "of patched code binaries, exHeaders,\n"
-                                                 "IPS code patches and LayeredFS\n"
-                                                 "for specific games.\n\n"
-                                                 "Also makes certain DLCs for out-of-\n"
-                                                 "region games work.\n\n"
-                                                 "Refer to the wiki for instructions.",
+                                                 "Permet de remplacer la région et\n"
+                                                 "la configuration du langage et\n"
+                                                 "l'utilisation de binaires de code\n"
+                                                 "corriges, exHeaders,\n"
+                                                 "patches de code IPS et LayeredFS\n"
+                                                 "pour des jeux specifiques.\n\n"
+                                                 "Fait egalement en sorte que les DLCs\n"
+                                                 "pour les jeux hors-region fonctionnent.\n\n"
+                                                 "Referez-vous au wiki pour plus d'infos.",
 
-                                                 "Redirect app. threads that would spawn\n"
-                                                 "on core1, to core2 (which is an extra\n"
-                                                 "CPU core for applications that usually\n"
-                                                 "remains unused).\n\n"
-                                                 "This improves the performance of very\n"
-                                                 "demanding games (like Pok\x82mon US/UM)\n" // CP437
-                                                 "by about 10%. Can break some games\n"
-                                                 "and other applications.\n",
+                                                 "Rediriger les threads d'app qui\n"
+                                                 "apparaissent sur core1, dans core2\n"
+                                                 "(ce sont des CPU qui sont inutilises\n"
+                                                 "pour les apps.\n\n"
+                                                 "Cela ameliore les performances sur les\n"
+                                                 "jeux tres exigents (comme Pok\x82mon\n" // CP437
+                                                 "US/UL) d'environ 10%. Peut casser\n"
+                                                 "certains jeux et d'autres apps.\n",
 
-                                                 "Enable showing the current NAND/FIRM:\n\n"
+                                                 "Active l'affichage de la NAND/FIRM\n"
+                                                 "actuelle:\n\n"
                                                  "\t* Sys  = SysNAND\n"
                                                  "\t* Emu  = EmuNAND 1\n"
                                                  "\t* EmuX = EmuNAND X\n"
@@ -864,21 +867,23 @@ void configMenu(bool oldPinStatus, u32 oldPinMode)
                                                  "\t* SyEX = SysNAND with EmuNAND X FIRM\n"
                                                  "\t* EmuS = EmuNAND 1 with SysNAND FIRM\n"
                                                  "\t* EmXS = EmuNAND X with SysNAND FIRM\n\n"
-                                                 "or a user-defined custom string in\n"
-                                                 "System Settings.\n\n"
-                                                 "Refer to the wiki for instructions.",
+                                                 "Ou utilisez une info custom dans\n"
+                                                 "les parametres systeme.\n\n"
+                                                 "Referez-vous au wiki pour plus d'infos.",
 
-                                                 "Enable showing the GBA boot screen\n"
-                                                 "when booting GBA games.",
+                                                 "Active l'affichage de l'ecran de\n"
+                                                 "demarrage GBA en demarrant des jeux\n"
+                                                 "GBA.",
 
-                                                 "Force audio output to headphones.\n\n"
-                                                 "Currently only for NATIVE_FIRM.\n\n"
-                                                 "Due to software limitations, this gets\n"
-                                                 "undone if you actually insert then\n"
-                                                 "remove HPs (just enter then exit sleep\n"
-                                                 "mode if this happens).\n\n"
-                                                 "Also gets bypassed for camera shutter\n"
-                                                 "sound.",
+                                                 "Force la sortie audio aux ecouteurs.\n\n"
+                                                 "Seulement pour le NATIVE_FIRM.\n\n"
+                                                 "A cause de limitations systeme, cela est\n"
+                                                 "annule si vous inserez puis\n"
+                                                 "supprimez des HP (il suffit d'entrer\n"
+                                                 "puis de quitter le mode veille si cela\n"
+                                                 "se produit).\n\n"
+                                                 "Est egalement contourne pour le son\n"
+                                                 "de l'obturateur de la caméra.",
                                                };
 
     FirmwareSource nandType = FIRMWARE_SYSNAND;
@@ -947,8 +952,8 @@ void configMenu(bool oldPinStatus, u32 oldPinMode)
                                        "FIRM1" };
 
     drawString(true, 10, 10, COLOR_TITLE, CONFIG_TITLE);
-    drawString(true, 10, 10 + SPACING_Y, COLOR_TITLE, "Press A to select, START to save");
-    drawFormattedString(false, 10, SCREEN_HEIGHT - 2 * SPACING_Y, COLOR_YELLOW, "Booted from %s via %s", isSdMode ? "SD" : "CTRNAND", bootTypes[(u32)bootType]);
+    drawString(true, 10, 10 + SPACING_Y, COLOR_TITLE, "Pressez A pour selectionner, START pour sauvegarder");
+    drawFormattedString(false, 10, SCREEN_HEIGHT - 2 * SPACING_Y, COLOR_YELLOW, "Demarre de %s via %s", isSdMode ? "SD" : "CTRNAND", bootTypes[(u32)bootType]);
 
     //Character to display a selected option
     char selected = 'x';

@@ -229,7 +229,7 @@ void SysConfigMenu_TogglePowerButton(void)
         Draw_DrawString(10, 30, COLOR_WHITE, "Pressez A pour changer, B pour revenir.");
 
         Draw_DrawString(10, 50, COLOR_WHITE, "Statut actuel :");
-        Draw_DrawString(100, 50, (((mcuIRQMask & 0x00000001) == 0x00000001) ? COLOR_RED : COLOR_GREEN), (((mcuIRQMask & 0x00000001) == 0x00000001) ? " DISABLED" : " ENABLED "));
+        Draw_DrawString(100, 50, (((mcuIRQMask & 0x00000001) == 0x00000001) ? COLOR_RED : COLOR_GREEN), (((mcuIRQMask & 0x00000001) == 0x00000001) ? " DESACTIVE" : " ACTIVE "));
 
         Draw_FlushFramebuffer();
         Draw_Unlock();
@@ -264,7 +264,7 @@ void SysConfigMenu_ControlWifi(void)
     {
         Draw_Lock();
         Draw_DrawString(10, 10, COLOR_TITLE, "Menu de configuration systeme");
-        Draw_DrawString(10, 30, COLOR_WHITE, "Pressez A pour forcer la connexion\nsur le slot :");
+        Draw_DrawString(10, 30, COLOR_WHITE, "Pressez A pour forcer la connexion sur le slot :");
         Draw_DrawString(10, 40, COLOR_WHITE, slotString);
         Draw_DrawString(10, 60, COLOR_WHITE, "Pressez B pour revenir.");
 

@@ -3,7 +3,7 @@
 #include "draw.h"
 #include <stdio.h>
 
-static const char *__press_b_to_close = "Press [B] to close";
+static const char *__press_b_to_close = "Pressez [B] pour fermer";
 
 void    DispMessage(const char *title, const char *message)
 {
