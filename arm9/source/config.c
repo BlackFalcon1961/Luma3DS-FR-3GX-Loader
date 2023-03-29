@@ -768,67 +768,70 @@ void configMenu(bool oldPinStatus, u32 oldPinMode)
                                                "    parametres systeme",
                                                "( ) Montrer ecran demarrage GBA dans l'AGB_FIRM\n"
                                                "    patche",
-                                               "( ) Forcer la sortie de l'audio aux ecouteurs"
+                                               "( ) Forcer la sortie de l'audio aux ecouteurs",
                                              };
 
-    static const char *optionsDescription[]  = { "Select the default EmuNAND.\n\n"
-                                                 "It will be booted when no\n"
-                                                 "directional pad buttons are pressed.",
+    static const char *optionsDescription[]  = { "Selectionnez l'EmuNAND par defaut.\n\n"
+                                                 "Il sera demarre quand aucun boutons\n"
+                                                 "du pad directionnel n'est presse.",
 
-                                                 "Select the screen brightness.",
+                                                 "Selectionnez la luminosite de l'ecran.",
 
-                                                 "Enable splash screen support.\n\n"
-                                                 "\t* 'Before payloads' displays it\n"
-                                                 "before booting payloads\n"
-                                                 "(intended for splashes that display\n"
-                                                 "button hints).\n\n"
-                                                 "\t* 'After payloads' displays it\n"
-                                                 "afterwards.\n\n"
-                                                 "Edit the duration in config.ini (3s\n"
-                                                 "default).",
+                                                 "Active l'image de demarrage.\n\n"
+                                                 "\t* 'Avant les payloads' l'affiche\n"
+                                                 "    avant de demarrer les payloads\n\n"
+                                                 "\t* 'Apres les payloads' l'affiche\n"
+                                                 "    apres.\n\n"
+                                                 "Editez la duree dans le config.ini\n"
+                                                 "(3s par defaut).",
 
-                                                 "Activate a PIN lock.\n\n"
-                                                 "The PIN will be asked each time\n"
-                                                 "Luma3DS boots.\n\n"
-                                                 "4, 6 or 8 digits can be selected.\n\n"
-                                                 "The ABXY buttons and the directional\n"
-                                                 "pad buttons can be used as keys.\n\n"
-                                                 "A message can also be displayed\n"
-                                                 "(refer to the wiki for instructions).",
+                                                 "Active un verrouillage PIN.\n\n"
+                                                 "Le PIN sera demande a chaque\n"
+                                                 "demarrage de Luma3DS.\n\n"
+                                                 "4, 6 ou 8 touches peuvent etre\n"
+                                                 "selectionnees.\n\n"
+                                                 "Les boutons ABXY et le pad\n"
+                                                 "directionnel peuvent etre\n"
+                                                 "utilises comme des cles.\n\n"
+                                                 "Un message peut egalement etre\n"
+                                                 "affiche (Referez-vous au wiki pour les\n"
+                                                 "instructions).",
 
-                                                 "Select the New 3DS CPU mode.\n\n"
-                                                 "This won't apply to\n"
-                                                 "New 3DS exclusive/enhanced games.\n\n"
-                                                 "'Clock+L2' can cause issues with some\n"
-                                                 "games.",
+                                                 "Selectionnez le mode CPU de la\n\n"
+                                                 "New 3DS. Cela ne s'appliquera pas\n"
+                                                 "aux jeux exclusifs New3DS/optimises.\n\n"
+                                                 "'Clock+L2' peux causer des\n"
+                                                 "problemes avec de nombreux jeux.",
 
-                                                 "Enable autobooting into homebrew,\n"
-                                                 "either into 3DS or DSi mode.\n\n"
-                                                 "Autobooting into a gamecard title is\n"
-                                                 "not supported.\n\n"
-                                                 "Refer to the \"autoboot\" section in the\n"
-                                                 "configuration file to configure\n"
-                                                 "this feature.",
+                                                 "Active le demarrage auto dans un\n"
+                                                 "homebrew, soit en mode 3DS,\n"
+                                                 "soit en mode DSI.\n\n"
+                                                 "Le demarrage auto dans une\n"
+                                                 "carte de jeu n'est pas supporte.\n\n"
+                                                 "Referez-vous a la section \"autoboot\"\n"
+                                                 "dans le fichier de configuration pour\n"
+                                                 "configurer cette option.",
 
-                                                 "If enabled, an EmuNAND\n"
-                                                 "will be launched on boot.\n\n"
-                                                 "Otherwise, SysNAND will.\n\n"
-                                                 "Hold L on boot to switch NAND.\n\n"
-                                                 "To use a different EmuNAND from the\n"
-                                                 "default, hold a directional pad button\n"
-                                                 "(Up/Right/Down/Left equal EmuNANDs\n"
-                                                 "1/2/3/4).",
+                                                 "Si active, une EmuNAND\n"
+                                                 "sera lancee au demarrage.\n\n"
+                                                 "Sinon, la SysNAND sera lancee.\n\n"
+                                                 "Maintenez L au demarrage pour switcher\n"
+                                                 "de NAND.\n\n"
+                                                 "Pour utiliser une EmuNAND differente de\n"
+                                                 "celle par defaut, maintenez un bouton du\n"
+                                                 "pad directionnel (Haut/Droite/Bas/Gauche\n"
+                                                 "est egal aux EmuNANDs 1/2/3/4).\n",
 
-                                                 "If enabled, when holding R on boot\n"
-                                                 "SysNAND will be booted with an\n"
-                                                 "EmuNAND FIRM.\n\n"
-                                                 "Otherwise, an EmuNAND will be booted\n"
-                                                 "with the SysNAND FIRM.\n\n"
-                                                 "To use a different EmuNAND from the\n"
-                                                 "default, hold a directional pad button\n"
-                                                 "(Up/Right/Down/Left equal EmuNANDs\n"
-                                                 "1/2/3/4), also add A if you have\n"
-                                                 "a matching payload.",
+                                                 "Si active, maintenir R au demarrage\n"
+                                                 "SysNAND sera demarre avec un FIRM\n"
+                                                 "EmuNAND.\n\n"
+                                                 "Sinon, une EmuNAND sera demarree avec\n"
+                                                 "le FIRM SysNAND.\n\n"
+                                                 "Pour utiliser une EmuNAND differente de\n"
+                                                 "celle par defaut, maintenez un bouton du\n"
+                                                 "pad directionnel (Haut/Droite/Bas/Gauche\n"
+                                                 "est egal aux EmuNANDs 1/2/3/4), faites A\n"
+                                                 "si vous avez le payload correspondant.",
 
                                                  "Enable loading external FIRMs and\n"
                                                  "system modules.\n\n"
