@@ -35,7 +35,7 @@ Regardez [ici](https://github.com/BlackFalcon1961/Luma3DS-FR-3GX-Loader/wiki/Rem
 #
 
 ### Infos supplémentaires :
-J'ai également traduit tout le wiki original de [Luma3DS](https://github.com/LumaTeam/Luma3DS/wiki) et ajouté des infos concernant les [plugins 3GX](https://github.com/BlackFalcon1961/Luma3DS-FR-3GX-Loader/wiki/3GX-Loader).  
+Je suis également en train de traduire tout le wiki original de [Luma3DS](https://github.com/LumaTeam/Luma3DS/wiki) et ajouté des infos concernant les [plugins 3GX](https://github.com/BlackFalcon1961/Luma3DS-FR-3GX-Loader/wiki/3GX-Loader).  
 J'ai fait de mon mieux pour la traduction, et testé le `boot.firm`.  
 Même après avoir tout vérifié, il est possible que certains éléments de texte ne soient pas parfaitement alignés sur les écrans.  
 Si effectivement un texte n'est pas correctement aligné il s'agit très certainement d'un oubli de ma part.  
