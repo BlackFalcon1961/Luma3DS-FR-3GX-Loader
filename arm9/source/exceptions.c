@@ -169,7 +169,7 @@ void detectAndProcessExceptionDumps(void)
             drawFormattedString(false, 10 + 10 * SPACING_X + 3 * i * SPACING_X, posYBottom, COLOR_WHITE, "%02X", *stackDump);
     }
 
-    static const char *choiceMessage[] = {"Press A to save the crash dump", "Press any other button to shutdown"};
+    static const char *choiceMessage[] = {"Appuyez sur A pour sauvegarder les logs", "Pressez une autre touche pour eteindre"};
 
     drawString(true, 10, posY + SPACING_Y, COLOR_WHITE, choiceMessage[0]);
     drawString(true, 10, posY + SPACING_Y + SPACING_Y , COLOR_WHITE, choiceMessage[1]);
@@ -189,12 +189,12 @@ void detectAndProcessExceptionDumps(void)
 
     if(fileWrite((void *)dumpHeader, path, dumpHeader->totalSize))
     {
-        posY = drawString(true, 10, posY + SPACING_Y, COLOR_WHITE, "You can find the dump in the following file:");
+        posY = drawString(true, 10, posY + SPACING_Y, COLOR_WHITE, "Vous trouverez les logs dans le fichier suivant :");
         posY = drawFormattedString(true, 10, posY + SPACING_Y, COLOR_WHITE, "%s:/luma/%s", isSdMode ? "SD" : "CTRNAND", path) + SPACING_Y;
     }
     else posY = drawString(true, 10, posY + SPACING_Y, COLOR_RED, "Error writing the dump file");
 
-    drawString(true, 10, posY + SPACING_Y, COLOR_WHITE, "Press any button to shutdown");
+    drawString(true, 10, posY + SPACING_Y, COLOR_WHITE, "Pressez une touche pour eteindre");
 
     waitInput(false);
 

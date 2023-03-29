@@ -750,22 +750,25 @@ void writeConfig(bool isConfigOptions)
 
 void configMenu(bool oldPinStatus, u32 oldPinMode)
 {
-    static const char *multiOptionsText[]  = { "Default EmuNAND: 1( ) 2( ) 3( ) 4( )",
-                                               "Screen brightness: 4( ) 3( ) 2( ) 1( )",
-                                               "Splash: Off( ) Before( ) After( ) payloads",
-                                               "PIN lock: Off( ) 4( ) 6( ) 8( ) digits",
-                                               "New 3DS CPU: Off( ) Clock( ) L2( ) Clock+L2( )",
-                                               "Homebrew autoboot: Off( ) 3DS( ) DSi( )",
+    static const char *multiOptionsText[]  = { "EmuNAND par defaut : 1( ) 2( ) 3( ) 4( )",
+                                               "Luminosite ecran : 4( ) 3( ) 2( ) 1( )",
+                                               "Splash : Off( ) Avant( ) Apres( ) les payloads",
+                                               "Verrouillage PIN : Off( ) 4( ) 6( ) 8( ) touches",
+                                               "CPU New 3DS : Off( ) Clock( ) L2( ) Clock+L2( )",
+                                               "Demarrage auto homebrew : Off( ) 3DS( ) DSi( )",
                                              };
 
-    static const char *singleOptionsText[] = { "( ) Autoboot EmuNAND",
-                                               "( ) Use EmuNAND FIRM if booting with R",
-                                               "( ) Enable loading external FIRMs and modules",
-                                               "( ) Enable game patching",
+    static const char *singleOptionsText[] = { "( ) Demarrage auto EmuNAND",
+                                               "( ) Utiliser le FIRM EmuNAND si demarre avec R",
+                                               "( ) Activer le chargement des FIRMs et modules\n"
+                                               "    externes",
+                                               "( ) Activer le patching des jeux",
                                                "( ) Redirect app. syscore threads to core2",
-                                               "( ) Show NAND or user string in System Settings",
-                                               "( ) Show GBA boot screen in patched AGB_FIRM",
-                                               "( ) Force routing audio output to headphones"
+                                               "( ) Montrer NAND ou infos utilisateur dans\n"
+                                               "    parametres systeme",
+                                               "( ) Montrer ecran demarrage GBA dans l'AGB_FIRM\n"
+                                               "    patche",
+                                               "( ) Forcer la sortie de l'audio aux ecouteurs"
                                              };
 
     static const char *optionsDescription[]  = { "Select the default EmuNAND.\n\n"
