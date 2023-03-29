@@ -1,5 +1,5 @@
 # Luma3DS FR 3GX Loader
-*(N)3DS "Custom Firmware" modifié par Nanquitas pour charger des plugins, traduit en français*
+*(N)3DS "Custom Firmware" (CFW) modifié par Nanquitas pour charger des plugins, traduit en français*
 
 ![](https://user-images.githubusercontent.com/60007836/228280451-ee9f10b8-afa9-4bdb-88b0-5615da23edb1.png)
 
