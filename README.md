@@ -30,14 +30,15 @@ Consultez le [wiki de Luma3DS FR](https://github.com/BlackFalcon1961/Luma3DS-FR-
 #
 ### Remerciements
 **[@Nanquitas](https://github.com/Nanquitas)** pour la [version originale](https://github.com/Nanquitas/Luma3DS).  
-Regardez [ici](https://github.com/BlackFalcon1961/Luma3DS-FR-3GX-Loader/wiki/Remerciements)
+Regardez [ici](https://github.com/BlackFalcon1961/Luma3DS-FR-3GX-Loader/wiki/Remerciements) pour accéder à la page des remerciements
 
 #
 
 ### Infos supplémentaires :
-J'ai également traduit tout le wiki original de [Luma3DS](https://github.com/LumaTeam/Luma3DS/wiki) et ajouté des infos concernant les [plugins 3GX](https://github.com/BlackFalcon1961/Luma3DS-FR-3GX-Loader/wiki/3GX-Loader).
-J'ai fait de mon mieux pour la traduction, et j'ai testé le `boot.firm`. 
-Même après avoir tout vérifié, il est possible que certains éléments de texte ne soient pas parfaitement alignés. Il s'agirait très certainement d'un oubli de ma part.
+J'ai également traduit tout le wiki original de [Luma3DS](https://github.com/LumaTeam/Luma3DS/wiki) et ajouté des infos concernant les [plugins 3GX](https://github.com/BlackFalcon1961/Luma3DS-FR-3GX-Loader/wiki/3GX-Loader).  
+J'ai fait de mon mieux pour la traduction, et j'ai testé le `boot.firm`.  
+Même après avoir tout vérifié, il est possible que certains éléments de texte ne soient pas parfaitement alignés.  
+Il s'agirait très certainement d'un oubli de ma part.
 
 #
 
