@@ -105,7 +105,7 @@ void MiscellaneousMenu_SwitchBoot3dsxTargetTitle(void)
         else
         {
             res = -1;
-            strcpy(failureReason, "no suitable process found");
+            strcpy(failureReason, "aucun processus trouve");
         }
     }
     else
@@ -234,7 +234,7 @@ void MiscellaneousMenu_InputRedirection(void)
         Draw_DrawString(10, 10, COLOR_TITLE, "Menu d'options diverses");
 
         if(!wasEnabled && cantStart)
-            Draw_DrawString(10, 30, COLOR_WHITE, "Can't start the input redirection before the system\nhas finished loading.");
+            Draw_DrawString(10, 30, COLOR_WHITE, "Impossible de demarrer InputRedirection tant\nque le systeme n'a pas demarre.");
         else if(!wasEnabled)
         {
             Draw_DrawString(10, 30, COLOR_WHITE, "Demarrage de InputRedirection...");
@@ -262,15 +262,15 @@ void MiscellaneousMenu_InputRedirection(void)
                 }
 
                 if(res != 0)
-                    sprintf(buf, "Starting InputRedirection... failed (0x%08lx).", (u32)res);
+                    sprintf(buf, "Demarrage de InputRedirection... echec (0x%08lx).", (u32)res);
                 else
-                    miscellaneousMenu.items[2].title = "Stop InputRedirection";
+                    miscellaneousMenu.items[2].title = "Arreter InputRedirection";
 
                 done = true;
             }
 
             if(res == 0)
-                Draw_DrawString(10, 30, COLOR_WHITE, "Starting InputRedirection... OK.");
+                Draw_DrawString(10, 30, COLOR_WHITE, "Demarrage de InputRedirection... OK.");
             else
                 Draw_DrawString(10, 30, COLOR_WHITE, buf);
         }
@@ -279,7 +279,7 @@ void MiscellaneousMenu_InputRedirection(void)
             if(res == 0)
             {
                 u32 posY = 30;
-                posY = Draw_DrawString(10, posY, COLOR_WHITE, "InputRedirection stopped successfully.\n\n");
+                posY = Draw_DrawString(10, posY, COLOR_WHITE, "InputRedirection arrete.\n\n");
                 if (isN3DS)
                 {
                     posY = Draw_DrawString(
@@ -328,8 +328,8 @@ void MiscellaneousMenu_UpdateTimeDateNtp(void)
 
         absOffset = utcOffset - 12;
         absOffset = absOffset < 0 ? -absOffset : absOffset;
-        posY = Draw_DrawFormattedString(10, 30, COLOR_WHITE, "Current UTC offset:  %c%02d%02d", utcOffset < 12 ? '-' : '+', absOffset, utcOffsetMinute);
-        posY = Draw_DrawFormattedString(10, posY + SPACING_Y, COLOR_WHITE, "Use DPAD Left/Right to change hour offset.\nUse DPAD Up/Down to change minute offset.\nPress A when done.") + SPACING_Y;
+        posY = Draw_DrawFormattedString(10, 30, COLOR_WHITE, "Decalage UTC actuel:  %c%02d%02d", utcOffset < 12 ? '-' : '+', absOffset, utcOffsetMinute);
+        posY = Draw_DrawFormattedString(10, posY + SPACING_Y, COLOR_WHITE, "Utilisez DPAD gauche/droite pour modifier\nle décalage horaire.\nUtilisez DPAD Haut/Bas pour changer les minutes.\nPressez A pour confirmer.") + SPACING_Y;
 
         input = waitInput();
 
@@ -368,13 +368,13 @@ void MiscellaneousMenu_UpdateTimeDateNtp(void)
 
         absOffset = utcOffset;
         absOffset = absOffset < 0 ? -absOffset : absOffset;
-        Draw_DrawFormattedString(10, 30, COLOR_WHITE, "Current UTC offset:  %c%02d", utcOffset < 0 ? '-' : '+', absOffset);
+        Draw_DrawFormattedString(10, 30, COLOR_WHITE, "Decalage UTC actuel:  %c%02d", utcOffset < 0 ? '-' : '+', absOffset);
         if (cantStart)
-            Draw_DrawFormattedString(10, posY + 2 * SPACING_Y, COLOR_WHITE, "Can't sync time/date before the system\nhas finished loading.") + SPACING_Y;
+            Draw_DrawFormattedString(10, posY + 2 * SPACING_Y, COLOR_WHITE, "Impossible de synchroniser la date et l'heure\ntant que le systeme n'a pas demarre.") + SPACING_Y;
         else if (R_FAILED(res))
             Draw_DrawFormattedString(10, posY + 2 * SPACING_Y, COLOR_WHITE, "Echec de l'operation (%08lx).", (u32)res) + SPACING_Y;
         else
-            Draw_DrawFormattedString(10, posY + 2 * SPACING_Y, COLOR_WHITE, "Time/date updated successfully.") + SPACING_Y;
+            Draw_DrawFormattedString(10, posY + 2 * SPACING_Y, COLOR_WHITE, "Heure/date mises a jour.") + SPACING_Y;
 
         input = waitInput();
 
@@ -399,9 +399,9 @@ void MiscellaneousMenu_NullifyUserTimeOffset(void)
         Draw_Lock();
         Draw_DrawString(10, 10, COLOR_TITLE, "Menu d'options diverses");
         if(R_SUCCEEDED(res))
-            Draw_DrawString(10, 30, COLOR_WHITE, "Operation succeeded.\n\nPlease reboot to finalize the changes.");
+            Draw_DrawString(10, 30, COLOR_WHITE, "Operation reussie.\n\nRedemarrez pour appliquer les changements.");
         else
-            Draw_DrawFormattedString(10, 30, COLOR_WHITE, "Operation failed (0x%08lx).", res);
+            Draw_DrawFormattedString(10, 30, COLOR_WHITE, "Echec de l'operation (0x%08lx).", res);
         Draw_FlushFramebuffer();
         Draw_Unlock();
     }
@@ -478,11 +478,11 @@ void MiscellaneousMenu_DumpDspFirm(void)
         Draw_Lock();
         Draw_DrawString(10, 10, COLOR_TITLE, "Menu d'options diverses");
         if(R_SUCCEEDED(res))
-            Draw_DrawString(10, 30, COLOR_WHITE, "DSP firm. successfully written to /3ds/dspfirm.cdc\non the SD card.");
+            Draw_DrawString(10, 30, COLOR_WHITE, "Le firmware DSP. a ete copie dans /3ds/dspfirm.cdc\nsur la carte SD.");
         else
             Draw_DrawFormattedString(
                 10, 30, COLOR_WHITE,
-                "Operation failed (0x%08lx).\n\nMake sure that Home Menu is running and that your\nSD card is inserted.",
+                "Echec de l'operation (0x%08lx).\n\nVerifiez que le menu Home est en marche\net que la carte SD est inseree.",
                 res
             );
         Draw_FlushFramebuffer();
