@@ -28,8 +28,8 @@ Cette version de Luma3DS dispose également d'une fonctionnalité pour charger d
 #
 ### Installation / Utilisation / Fonctionnalités
 
-Pour télécharger la dernière version, [cliquez ici](https://github.com/BlackFalcon1961/Luma3DS-FR-3GX-Loader/releases/latest).
-  Vous pouvez également consulter le [wiki de Luma3DS FR](https://github.com/BlackFalcon1961/Luma3DS-FR-3GX-Loader/wiki).
+Pour télécharger la dernière version, [cliquez ici](https://github.com/BlackFalcon1961/Luma3DS-FR-3GX-Loader/releases/latest).    
+Vous pouvez également consulter le [wiki de Luma3DS FR](https://github.com/BlackFalcon1961/Luma3DS-FR-3GX-Loader/wiki).
 
 #
 ### Remerciements
