@@ -31,7 +31,7 @@ Consultez le [wiki de Luma3DS FR](https://github.com/BlackFalcon1961/Luma3DS-FR-
 ### Remerciements
 **[@AuroraWright](https://github.com/AuroraWright)** et **[@TuxSH](https://github.com/TuxSH)** pour la [version originale de Luma3DS](https://github.com/LumaTeam/Luma3DS).  
 **[@Nanquitas](https://github.com/Nanquitas)** pour la [version 3GX de Luma3DS](https://github.com/Nanquitas/Luma3DS).  
-Regardez [ici](https://github.com/BlackFalcon1961/Luma3DS-FR-3GX-Loader/wiki/Remerciements) pour accéder à la page des remerciements
+   Regardez [ici](https://github.com/BlackFalcon1961/Luma3DS-FR-3GX-Loader/wiki/Remerciements) pour accéder à la page des remerciements
 
 #
 
