@@ -178,15 +178,16 @@ void RosalinaMenu_ShowCredits(void)
         posY = Draw_DrawString(10, posY + SPACING_Y, COLOR_WHITE, "Chargement de code 3DSX par fincs");
         posY = Draw_DrawString(10, posY + SPACING_Y, COLOR_WHITE, "InputRedirection par Stary (PoC par ShinyQuagsire)");
         posY = Draw_DrawString(10, posY + SPACING_Y, COLOR_WHITE, "3GX Loader par Nanquitas");
+        posY = Draw_DrawString(10, posY + SPACING_Y, COLOR_WHITE, "Traduction en francais par BlackFalcon1961");
 
         posY += 2 * SPACING_Y;
 
         Draw_DrawString(10, posY, COLOR_WHITE,
             (
                 "Remerciement special a :\n"
-                "  fincs, WinterMute, mtheall, piepie62,\n"
-                "  Contributeurs Luma3DS, contributeurs libctru,\n"
-                "  other people"
+                " - fincs, WinterMute, mtheall, piepie62,\n"
+                " - Contributeurs Luma3DS, contributeurs libctru,\n"
+                " - autres personnes"
             ));
 
         Draw_FlushFramebuffer();
