@@ -3,8 +3,6 @@
 
 ![](https://user-images.githubusercontent.com/60007836/228280451-ee9f10b8-afa9-4bdb-88b0-5615da23edb1.png)
 
-**ATTENTION : CE PROJET EST ACTUELLEMENT EN COURS DE TRADUCTION**
-
 ### Qu'est-ce que c'est ?
 **Luma3DS** est un programme pour corriger le logiciel système des consoles portables (New) Nintendo 3DS/2DS "à la volée", ajoutant des fonctionnalités telles que les paramètres de langue par jeu, des capacités de débogage pour les développeurs et la suppression des restrictions appliquées par Nintendo telles que le verrouillage régional.
 
