@@ -750,12 +750,12 @@ void writeConfig(bool isConfigOptions)
 
 void configMenu(bool oldPinStatus, u32 oldPinMode)
 {
-    static const char *multiOptionsText[]  = { "EmuNAND par defaut : 1( ) 2( ) 3( ) 4( )",
-                                               "Luminosite ecran : 4( ) 3( ) 2( ) 1( )",
-                                               "Splash : Off( ) Avant( ) Apres( ) les payloads",
-                                               "Verrouillage PIN : Off( ) 4( ) 6( ) 8( ) touches",
-                                               "CPU New 3DS : Off( ) Clock( ) L2( ) Clock+L2( )",
-                                               "Demarrage auto homebrew : Off( ) 3DS( ) DSi( )",
+    static const char *multiOptionsText[]  = { "EmuNAND par defaut: 1( ) 2( ) 3( ) 4( )",
+                                               "Luminosite ecran: 4( ) 3( ) 2( ) 1( )",
+                                               "Splash: Off( ) Avant( ) Apres( ) les payloads",
+                                               "Verrouillage PIN: Off( ) 4( ) 6( ) 8( ) touches",
+                                               "CPU New 3DS: Off( ) Clock( ) L2( ) Clock+L2( )",
+                                               "Demarrage auto homebrew: Off( ) 3DS( ) DSi( )",
                                              };
 
     static const char *singleOptionsText[] = { "( ) Demarrage auto EmuNAND",
