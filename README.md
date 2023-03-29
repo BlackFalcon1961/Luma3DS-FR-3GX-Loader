@@ -1,5 +1,5 @@
 # Luma3DS FR 3GX Loader
-*(N)3DS "Custom Firmware" Traduit en français*
+*(N)3DS "Custom Firmware" modifié par Nanquitas pour charger des plugins, traduit en français*
 
 ![](https://user-images.githubusercontent.com/60007836/228280451-ee9f10b8-afa9-4bdb-88b0-5615da23edb1.png)
 
@@ -34,7 +34,7 @@ Consultez le [wiki de Luma3DS FR](https://github.com/BlackFalcon1961/Luma3DS-FR-
 **[@AuroraWright](https://github.com/AuroraWright)** et **[@TuxSH](https://github.com/TuxSH)** pour la [version originale de Luma3DS](https://github.com/LumaTeam/Luma3DS).  
 **[@Nanquitas](https://github.com/Nanquitas)** pour la [version 3GX de Luma3DS](https://github.com/Nanquitas/Luma3DS).    
 
-Regardez [ici](https://github.com/BlackFalcon1961/Luma3DS-FR-3GX-Loader/wiki/Remerciements) pour accéder à la page des remerciements
+Regardez [ici](https://github.com/BlackFalcon1961/Luma3DS-FR-3GX-Loader/wiki/Remerciements) pour accéder à la page des remerciements.
 
 #
 
