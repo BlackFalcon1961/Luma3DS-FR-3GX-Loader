@@ -54,7 +54,7 @@ void newPin(bool allowSkipping, u32 pinMode)
 
     u8 length = 4 + 2 * (pinMode - 1);
 
-    drawString(true, 10, 10, COLOR_TITLE, "Entre un nouveau PIN avec ABXY et le pad directionnel");
+    drawString(true, 10, 10, COLOR_TITLE, "Entre un nouveau PIN avec ABXY et le pad-D");
     drawString(true, 10, 10 + SPACING_Y, COLOR_TITLE, allowSkipping ? "Pressez START pour passer, SELECT pour reset" : "Pressez SELECT pour reset");
 
     drawFormattedString(true, 10, 10 + 3 * SPACING_Y, COLOR_WHITE, "PIN (%u touches): ", length);
@@ -148,7 +148,7 @@ bool verifyPin(u32 pinMode)
 
     swapFramebuffers(true);
 
-    drawString(true, 10, 10, COLOR_TITLE, "Entrez le PIN avec ABXY le pad directionnel\npour continuer");
+    drawString(true, 10, 10, COLOR_TITLE, "Entrez le PIN avec ABXY le pad-D pour continuer");
     drawString(true, 10, 10 + SPACING_Y, COLOR_TITLE, "Pressez START pour eteindre, SELECT pour effacer");
 
     drawFormattedString(true, 10, 10 + 3 * SPACING_Y, COLOR_WHITE, "PIN (%u touches): ", lengthBlock[0]);
