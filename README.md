@@ -46,6 +46,8 @@ J'ai fait de mon mieux pour la traduction, et testé le `boot.firm`.
 Même après avoir tout vérifié, il est possible que certains éléments de texte ne soient pas parfaitement alignés sur les écrans.  
 Si effectivement un texte n'est pas correctement aligné il s'agit très certainement d'un oubli de ma part.  
 
+**Certaines applications peuvent planter sur les New 3DS/2DS, j'essaierai de corriger ça dans les prochains jours.** (écrit le 30/03/23)    
+
 J'ai fait cette traduction afin d'aider certains de mes amis, mais je pense également que ça peut contribuer à la communauté ^^
 
 #
